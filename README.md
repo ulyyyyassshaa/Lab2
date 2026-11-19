@@ -17,9 +17,9 @@ class oooo {
     public static PrintStream out = System.out;
     public static void main(String[] args){
         int n = in.nextInt(); //считывание N
-        int[] arr = new int[n]; //создание массива 1)
+        long[] arr = new long[n]; //создание массива 1)
         for(int i = 0;i<=n-1;i++){ //заполнение массива
-            arr[i] = in.nextInt();
+            arr[i] = in.nextLong();
         }
         out.println("Исходный массив");//вывод исходного массива
         for (int i = 0;i<=n-1;i++){
@@ -30,7 +30,7 @@ class oooo {
         boolean[] isSquare = new boolean[n]; //проверка является ли число квадратом целого числа
         for(int i = 0;i<=n-1;i++){ // проверяем каждое число в исходном массиве, вешаем флажок на каждый элемент
             if(arr[i]>=0){
-                int root = (int)Math.sqrt(arr[i]);
+                long root = (long)Math.sqrt(arr[i]);
                 if(root*root==arr[i]){
                     isSquare[i]=true;
                 }
@@ -54,7 +54,7 @@ class oooo {
                     }
                 }
                 if(swap){ //если для элементов нужна перестановка, то меняем местами
-                    int a = arr[j];
+                    long a = arr[j];
                     arr[j] = arr[j+1];
                     arr[j+1] = a;
 
@@ -72,7 +72,7 @@ class oooo {
         //находим количество чисел в массиве, который являются кубами целых чисел
         int count = 0;// счетчик
         for (int i = 0; i<=n-1;i++){
-            int root3 = (int)Math.cbrt(arr[i]);
+            long root3 = (long)Math.cbrt(arr[i]);
             if(root3*root3*root3==arr[i]){
                 count++;
             }
@@ -83,7 +83,7 @@ class oooo {
         //4) замена элементов, являющихся квадратами целых чисел, на их квадратные корни
         for (int i =0; i<=n-1;i++){ //проходимся по массиву, находим квадраты и вычисляем их корни
             if(isSquare[i]){
-                arr[i] =(int) Math.sqrt(arr[i]);//замена
+                arr[i] =(long) Math.sqrt(arr[i]);//замена
             }
         }
         out.println("Вывод массива с заменами на квадратные корни:");
@@ -95,7 +95,7 @@ class oooo {
         out.println("Вывод массива с заменами на факториал каждого неотрицательного числа:");
         for(int i = 0; i<=n-1;i++){//создаем цикл
             if(arr[i]>=0){//проверка
-                int fact = 1;//для каждого числа 1 первый множитель
+                long fact = 1;//для каждого числа 1 первый множитель
                 for (int j = 2; j<=arr[i];j++){
                     fact *= j;
                 }
@@ -103,5 +103,5 @@ class oooo {
             }
             out.print(arr[i]+" ");
         }
-        }
+    }
 }
